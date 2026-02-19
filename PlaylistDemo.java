@@ -16,30 +16,32 @@ public class PlaylistDemo {
         // Print how many songs we have from Daft Punk
         int artistCount = songs.countArtist("Daft Punk");
         System.out.println();
-        System.out.println("=====================================");
-        System.out.println("   COUNTING SONGS BY SPECIFIC ARTIST ");
-        System.out.println("=====================================");
-        System.out.println("Daft Punk appears " + artistCount + " times.");
+        System.out.println("========================================");
+        System.out.println("          ARTIST STATISTICS             ");
+        System.out.println("========================================");
+        System.out.println(" Daft Punk appears " + artistCount + " time(s).");
+        System.out.println("========================================");
         System.out.println();
 
         // remove every song from the bag until there are no longer anymore
-        System.out.println("=====================================");
-        System.out.println("        REMOVING ALL SONGS           ");
-        System.out.println("=====================================");
+        System.out.println("========================================");
+        System.out.println("            REMOVING SONGS              ");
+        System.out.println("========================================");
 
         while (!songs.isEmpty()) // Will keep going as long as boolea condition is true (while not empty)
         {
             Song s = songs.removeSong();
-            System.out.println("Removed: " + s.getTitle() + " - " + s.getArtist());
+            System.out.printf(" Removed: %-30s %-20s%n", s.getTitle(), s.getArtist());
         }
 
-        System.out.println("-------------------------------------");
+        System.out.println("========================================");
 
         // lets test out if our bag truly did get removed
         boolean isEmpty = songs.isEmpty();
         // If it is empty, say that there are no songs in our playlist
         if (isEmpty) {
-            System.out.println("No songs in your playlist!");
+            System.out.println(" Playlist is now empty.");
+            System.out.println("========================================");
         // else, print out the songs (shoulnt be the case as our playlist is now empty)
         } else {
             songs.printAllSongs();
