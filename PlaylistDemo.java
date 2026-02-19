@@ -5,6 +5,10 @@ public class PlaylistDemo {
 
         songs.addSong(new Song("Blinding Lights", "The Weeknd"));
         songs.addSong(new Song("Faint", "Linkin Park"));
+        songs.addSong(new Song("The Less I Know The Better", "Tame Impala"));
+        songs.addSong(new Song("Feel Good Inc.", "Gorillaz"));
+        // Adding another Weeknd song for additional countArtist testing.
+        songs.addSong(new Song("Starboy", "The Weeknd"));
         songs.addSong(new Song("Burried Alive", "Avenged Sevenfold"));
         songs.addSong(new Song("Instant Crush", "Daft Punk"));
         // Adding another Daft Punk song for countArtist testing.
@@ -14,12 +18,14 @@ public class PlaylistDemo {
         songs.printAllSongs();
 
         // Print how many songs we have from Daft Punk
-        int artistCount = songs.countArtist("Daft Punk");
+        int daftPunkCount = songs.countArtist("Daft Punk");
+        int weekndCount = songs.countArtist("The Weeknd");
         System.out.println();
         System.out.println("========================================");
         System.out.println("          ARTIST STATISTICS             ");
         System.out.println("========================================");
-        System.out.println(" Daft Punk appears " + artistCount + " time(s).");
+        System.out.println(" Daft Punk appears " + daftPunkCount + " time(s).");
+        System.out.println(" The Weeknd appears " + weekndCount + " time(s).");
         System.out.println("========================================");
         System.out.println();
 
