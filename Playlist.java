@@ -56,7 +56,7 @@ public class Playlist {
      * and the type of remove method we get is based on whicever bag we implement.
      * So in this case, it'd be ArrayBag's remove method.
      * The remove method will return a result to removeSong which in turn is
-     * returned to the client. This is a perfect example of
+     * returned to the client.
      * This is a perfect example of encapsulation.
      * 
      */
@@ -91,11 +91,20 @@ public class Playlist {
      */
 
     public void printAllSongs() {
-        System.out.println("Now Printing Your Playlist");
-        System.out.println("==========================");
-        for (Song s : songs.toArray()) {
-            System.out.println("Title: " + s.getTitle() + "\nArtist: " + s.getArtist());
-            System.out.println("-----------------------------------------------------");
+        System.out.println("=====================================");
+        System.out.println("            YOUR PLAYLIST          ");
+        System.out.println("=====================================");
+
+        Object[] array = songs.toArray();
+
+        // Using object due to runtime error that occurs when we try to use Song as the
+        // type.
+        for (Object obj : array) {
+            Song s = (Song) obj;
+
+            System.out.printf("Title : %s%n", s.getTitle());
+            System.out.printf("Artist: %s%n", s.getArtist());
+            System.out.println("-------------------------------------");
         }
     }
 
@@ -114,10 +123,14 @@ public class Playlist {
 
     public int countArtist(String artist) {
         int count = 0;
-        for (Song s : songs.toArray()) {
-            if (s.getArtist().equals(artist))
+
+        for (Object obj : songs.toArray()) {
+            Song s = (Song) obj;
+            if (s.getArtist().equals(artist)) {
                 count++;
+            }
         }
+
         return count;
     }
 
